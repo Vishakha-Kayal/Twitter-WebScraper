@@ -1,8 +1,9 @@
 const { Builder, By, Key, until } = require("selenium-webdriver");
+require('chromedriver'); 
 require('dotenv').config();
 
 async function example() {
-    let driver = await new Builder().forBrowser("chrome").build();
+    let driver = new Builder().forBrowser('chrome').build();
     try {
         await driver.get("https://twitter.com/login");
 
