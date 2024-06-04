@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017/twitterscraper')
+mongoose.connect('mongodb+srv://kayalvishakha:kWKRHFcu5FHX8wYu@selenium-proxymesh.8hzr3ne.mongodb.net/twitter')
 
 const twitterSchema = mongoose.Schema({
     trends:[],
