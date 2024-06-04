@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top happening topics</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <main class="w-full h-screen px-6 py-2">
+
+        <% if(ipAddress!="" ){%>
+            <div class="text-xl mb-2">
+                <p>These are the most happening topics as on <b>
+                        <%= new Date().toLocaleString() %>
+                    </b> </p>
+            </div>
+            <div class="trends-list text-lg mb-3">
+                <% trends.forEach(trend=>{%>
+                    <h3 class="text-xl font-semibold mb-1">
+                        <%= trend %>
+                    </h3>
+                    <%}) %>
+            </div>
+            <p class="text-xl mb-3">The IP address used for this query was <b>
+                    <%= ipAddress %>
+                </b></p>
+            <div class="json text-xl mb-3">
+                <b>Here's a JSON extract of this record from the MongoDB: </b>
+                <pre><%= jsonExtract %></pre>
+            </div>
+            <a href="/getTrends" class="text-[#0000EE] text-lg mb-3 inline-block font-medium">Click here to run the
+                script again.</a><br>
+            <% }else { %>
+                <h2 class="font-semibold text-4xl mb-5">Expected Result : </h2>
+                <h4 class="text-xl mb-3">HTML page:</h4>
+                <a href="/getTrends" class="text-[#0000EE] text-lg mb-3 inline-block font-medium">Click here to run the
+                    script.</a><br>
+                <% } %>
+
+
+    </main>
+</body>
+
+</html>
